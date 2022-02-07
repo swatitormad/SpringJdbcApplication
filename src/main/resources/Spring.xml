@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean id ="c1" class="com.model.Customer" scope = "prototype" autowire="constructor">
+    <property name="adhaar" value = "10132"></property>
+    <property name="cname" value = "Sachin Khedekar"></property>
+    <property name="address" value = "Pune"></property>
+    <property name="phone" value = "745632"></property>
+    <property name = "list">
+    <list>
+    <value>Suroof</value>
+    <value>Quick</value>
+    <value>SppedPost</value>
+    <value>Paidme</value>
+    </list>
+    </property>
+    </bean>
+    
+    <bean id ="c2" class = "com.model.Customer" scope = "prototype">
+    <constructor-arg value = "34021"/>
+    <constructor-arg value = "Swati Khedekar"></constructor-arg>
+    <constructor-arg value = "Anagar"></constructor-arg>
+    <constructor-arg value = "975432"></constructor-arg>
+    <constructor-arg ref="b1"></constructor-arg>
+	<constructor-arg >
+	<list>
+	<value>Bludart</value>
+	<value>Dtdc</value>
+	<value>ExpressBees</value>
+	</list>
+	</constructor-arg>
+    </bean>
+    
+    <bean id="b1" class="com.model.Bill">
+    <property name="bno" value="4569"></property>
+    <property name="billname" value="receipt"></property>
+    </bean>
+    
+   <bean id="b" class="com.model.Bill">
+    <property name="bno" value="4009"></property>
+    <property name="billname" value="token"></property>
+    </bean> 
+    
+    <bean id="o1" class="com.model.Orders">
+    <property name="orderNames" value="Dtdc"></property>
+    </bean>
+    
+    <bean id="o2" class="com.model.Orders">
+    <property name="orderNames" value="ExpressBees"></property>
+    </bean>
+    
+    <bean id="o3" class="com.model.Orders">
+    <property name="orderNames" value="BlueDart"></property>
+    </bean>
+    
+
+</beans>
